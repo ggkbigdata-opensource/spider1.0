@@ -1,5 +1,7 @@
 package com.ggk.spider.model;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
 public class EnterpriseBounds {
 	
 	private Long id;
@@ -65,5 +67,10 @@ public class EnterpriseBounds {
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	@Override
+	public String toString() {
+		return ReflectionToStringBuilder.toString(this);
 	}
 }

@@ -1,5 +1,7 @@
 package com.ggk.spider.model;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
 public class BusinessFinanceData {
 	private Long id;
 	private String enterpriseId;//企业实体ID
@@ -57,5 +59,10 @@ public class BusinessFinanceData {
 	}
 	public void setEnterpriseId(String enterpriseId) {
 		this.enterpriseId = enterpriseId;
+	}
+	
+	@Override
+	public String toString() {
+		return ReflectionToStringBuilder.toString(this);
 	}
 }
