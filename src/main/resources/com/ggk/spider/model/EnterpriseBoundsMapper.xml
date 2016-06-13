@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ggk.spider.mapper.EnterpriseBoundsMapper">
+
+	<insert id="add">
+		INSERT
+		INTO tbl_spider_enterprisebounds
+		(enterpriseId,boundsCode,boundsName,boundsFullName,boundsType,duration,issuingDate,matureDate)
+		VALUES
+		(#{enterpriseId},#{boundsCode},#{boundsName},#{boundsFullName},#{boundsType},#{duration},#{issuingDate},#{matureDate});
+	</insert>
+
+</mapper>

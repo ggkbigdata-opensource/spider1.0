@@ -16,7 +16,7 @@ apply plugin: 'spring-boot'
 
 springBoot {
     backupSource = false
-    mainClass = 'com.ggk.spider.SpiderApplication'
+    mainClass = 'com.ggk.spider.Application'
 }
 
 jar {

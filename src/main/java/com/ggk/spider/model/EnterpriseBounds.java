@@ -2,6 +2,7 @@ package com.ggk.spider.model;
 
 public class EnterpriseBounds {
 	
+	private Long id;
 	private Long enterpirseId;//企业实体ID
 	private String boundsCode;//债券编码
 	private String boundsName;//债券简称
@@ -58,5 +59,11 @@ public class EnterpriseBounds {
 	}
 	public void setBoundsFullName(String boundsFullName) {
 		this.boundsFullName = boundsFullName;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
 	}
 }
