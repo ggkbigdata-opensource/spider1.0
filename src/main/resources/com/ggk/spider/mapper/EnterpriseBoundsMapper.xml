@@ -3,7 +3,7 @@
 
 <mapper namespace="com.ggk.spider.mapper.EnterpriseBoundsMapper">
 
-	<insert id="add">
+	<insert id="add"  useGeneratedKeys="true" keyProperty="id">
 		INSERT
 		INTO tbl_spider_enterprisebounds
 		(enterpriseId,boundsCode,boundsName,boundsFullName,boundsType,duration,issuingDate,matureDate)

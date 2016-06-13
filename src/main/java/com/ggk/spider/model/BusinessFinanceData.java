@@ -2,7 +2,7 @@ package com.ggk.spider.model;
 
 public class BusinessFinanceData {
 	private Long id;
-	private Long enterpirseId;//企业实体ID
+	private String enterpriseId;//企业实体ID
 	private String enterpriseName;// 企业名称
 	private String year;//财务数据年份
 	private String financeIndexCode;//财务指标编码
@@ -10,12 +10,6 @@ public class BusinessFinanceData {
 	private String financeIndexValue;//财务指标值
 	private String areListed;//企业是否已上市
 	
-	public Long getEnterpirseId() {
-		return enterpirseId;
-	}
-	public void setEnterpirseId(Long enterpirseId) {
-		this.enterpirseId = enterpirseId;
-	}
 	public String getEnterpriseName() {
 		return enterpriseName;
 	}
@@ -57,5 +51,11 @@ public class BusinessFinanceData {
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+	public String getEnterpriseId() {
+		return enterpriseId;
+	}
+	public void setEnterpriseId(String enterpriseId) {
+		this.enterpriseId = enterpriseId;
 	}
 }
