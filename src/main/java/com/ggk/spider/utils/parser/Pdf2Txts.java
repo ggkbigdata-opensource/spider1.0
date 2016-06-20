@@ -33,7 +33,7 @@ public class Pdf2Txts {
 
 	public String convert() {
 
-		if (StringUtils.isEmpty(getPdfSrcFilePath()) || StringUtils.isEmpty(getTxtDestFileDir()) || getPdfSrcFilePath().contains("摘要")) {
+		if (StringUtils.isEmpty(getPdfSrcFilePath()) || StringUtils.isEmpty(getTxtDestFileDir()) || getPdfSrcFilePath().contains("公告")) {
 			return null;
 		}
 
@@ -54,7 +54,7 @@ public class Pdf2Txts {
 		
 		PDFParser parser = null;
 		
-		COSDocument cosDoc = null;
+//		COSDocument cosDoc = null;
 
 		PDFTextStripper stripper = null; // PDFTextStripper来提取文本
 		try {
@@ -72,22 +72,23 @@ public class Pdf2Txts {
 			}
 			
 			parser.parse();
-			cosDoc = parser.getDocument();
-			document = new PDDocument(cosDoc);
+//			cosDoc = parser.getDocument();
+//			document = new PDDocument(cosDoc);
+			document = PDDocument.load(this.getPdfSrcFilePath());
 			// 文件输入流，写入文件倒textFile
 			output = new OutputStreamWriter(new FileOutputStream(txtPath), encoding);
 
 			stripper = new PDFTextStripper();
-			String s = stripper.getText(document);
-			output.write(s);
-//			// 设置是否排序
-//			stripper.setSortByPosition(false);
-//			// 设置起始页
-//			stripper.setStartPage(startPage);
-//			// 设置结束页
-//			stripper.setEndPage(endPage);
-//			// 调用PDFTextStripper的writeText提取并输出文本
-//			stripper.writeText(document, output);
+//			String s = stripper.getText(document);
+//			output.write(s);
+			// 设置是否排序
+			stripper.setSortByPosition(false);
+			// 设置起始页
+			stripper.setStartPage(startPage);
+			// 设置结束页
+			stripper.setEndPage(endPage);
+			// 调用PDFTextStripper的writeText提取并输出文本
+			stripper.writeText(document, output);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -117,4 +118,16 @@ public class Pdf2Txts {
 	public void setTxtDestFileDir(String txtDestFileDir) {
 		this.txtDestFileDir = txtDestFileDir;
 	}
+	
+//	public static void main(String[] args) {
+//		ConvertExecuter executer = new ConvertExecuter();
+//		List<String> paths = executer.getFileList("F:\\ggkData\\pdf");
+//		int count = 0;
+//		String destDir = "F:\\ggkData\\txt";
+//		for (String path : paths) {
+//			Pdf2Txts pdfOperation = new Pdf2Txts(path, destDir);
+//			pdfOperation.convert();
+//			System.out.println(++count);
+//		}
+//	}
 }

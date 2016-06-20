@@ -11,9 +11,9 @@ import com.ggk.spider.utils.threads.ProducerThread;
 
 public class ConvertExecuter {
 	
-	private static String  reportTxtDestFileDir = "D:\\codes\\spider\\reporttxt";
-	private static String  txtDestFileDir = "D:\\codes\\spider\\txt";
-	private static String  allPdfFileDir = "D:\\codes\\spider\\sourcepdfs";
+	private static String  reportTxtDestFileDir = "F:\\ggkData\\reporttxt";
+	private static String  txtDestFileDir = "F:\\ggkData\\txt";
+	private static String  allPdfFileDir = "F:\\ggkData\\sourcepdfs";
 	
 	public void excute(){
 		List<String> pathList = this.getFileList(allPdfFileDir);
@@ -36,7 +36,7 @@ public class ConvertExecuter {
 	/**
 	 * 拿到所有的文件全路径
 	 * */ 
-	private List<String> getFileList(String path) {
+	public List<String> getFileList(String path) {
 		// 存放所有文件名的全路径
 		List<String> list = new ArrayList<String>();
 		try {

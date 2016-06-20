@@ -10,8 +10,47 @@ public class BusinessFinanceData {
 	private String financeIndexCode;//财务指标编码
 	private String financeIndexName;//财务指标名称
 	private String financeIndexValue;//财务指标值
+	private String reportTitle;//报表标题
 	private String areListed;//企业是否已上市
+	private String srcFileName;//pdf文件
+
+	public BusinessFinanceData() {
+	}
 	
+
+	public BusinessFinanceData(String enterpriseId, String enterpriseName, String year, String financeIndexCode,
+			String financeIndexName, String financeIndexValue, String reportTitle, String areListed) {
+		super();
+		this.enterpriseId = enterpriseId;
+		this.enterpriseName = enterpriseName;
+		this.year = year;
+		this.financeIndexCode = financeIndexCode;
+		this.financeIndexName = financeIndexName;
+		this.financeIndexValue = financeIndexValue;
+		this.reportTitle = reportTitle;
+		this.areListed = areListed;
+	}
+
+
+
+	public String getSrcFileName() {
+		return srcFileName;
+	}
+
+
+	public void setSrcFileName(String srcFileName) {
+		this.srcFileName = srcFileName;
+	}
+
+
+	public String getReportTitle() {
+		return reportTitle;
+	}
+
+	public void setReportTitle(String reportTitle) {
+		this.reportTitle = reportTitle;
+	}
+
 	public String getEnterpriseName() {
 		return enterpriseName;
 	}

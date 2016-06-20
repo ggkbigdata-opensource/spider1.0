@@ -29,7 +29,6 @@ public class ProducerThread implements Runnable {
 		}
 		DataStore.getDatas().put(txtPath);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

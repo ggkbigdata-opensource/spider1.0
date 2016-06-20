@@ -5,9 +5,9 @@
 
 	<insert id="add"  useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO tbl_spider_businessfinancedata
-		(enterpriseId,enterpriseName,year,financeIndexCode,financeIndexName,financeIndexValue,areListed)
+		(enterpriseId,enterpriseName,year,financeIndexCode,financeIndexName,financeIndexValue,reportTitle,areListed,srcFileName)
 		VALUES
-		(#{enterpriseId},#{enterpriseName},#{year},#{financeIndexCode},#{financeIndexName},#{financeIndexValue},#{areListed});
+		(#{enterpriseId},#{enterpriseName},#{year},#{financeIndexCode},#{financeIndexName},#{financeIndexValue},#{reportTitle},#{areListed},#{srcFileName});
 	</insert>
 
 </mapper>

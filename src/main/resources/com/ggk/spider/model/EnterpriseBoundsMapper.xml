@@ -3,12 +3,12 @@
 
 <mapper namespace="com.ggk.spider.mapper.EnterpriseBoundsMapper">
 
-	<insert id="add"  useGeneratedKeys="true" keyProperty="id">
+	<insert id="add">
 		INSERT
 		INTO tbl_spider_enterprisebounds
 		(enterpriseId,bondsCode,bondsName,bondsFullName,bondsType,duration,issuingDate,matureDate)
 		VALUES
-		(#{enterpriseId},#{bondsCode},#{bondsName},#{bondsFullName},#{bondsType},#{duration},#{issuingDate},#{matureDate},#{srcFileName});
+		(#{enterpriseId},#{bondsCode},#{bondsName},#{bondsFullName},#{bondsType},#{duration},#{issuingDate},#{matureDate});
 	</insert>
 
 </mapper>

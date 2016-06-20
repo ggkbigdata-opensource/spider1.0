@@ -6,10 +6,10 @@ public class EnterpriseBounds {
 	
 	private Long id;
 	private Long enterpirseId;//企业实体ID
-	private String boundsCode;//债券编码
-	private String boundsName;//债券简称
-	private String boundsFullName;//债券全称
-	private String boundsType;// 债券类型 公司债或企业债
+	private String bondsCode;//债券编码
+	private String bondsName;//债券简称
+	private String bondsFullName;//债券全称
+	private String bondsType;// 债券类型 公司债或企业债
 	private String duration;//发行时长
 	private String issuingDate;//发行时间
 	private String matureDate;//到期时间
@@ -20,23 +20,23 @@ public class EnterpriseBounds {
 	public void setEnterpirseId(Long enterpirseId) {
 		this.enterpirseId = enterpirseId;
 	}
-	public String getBoundsCode() {
-		return boundsCode;
+	public String getBondsCode() {
+		return bondsCode;
 	}
-	public void setBoundsCode(String boundsCode) {
-		this.boundsCode = boundsCode;
+	public void setBondsCode(String bondsCode) {
+		this.bondsCode = bondsCode;
 	}
-	public String getBoundsName() {
-		return boundsName;
+	public String getBondsName() {
+		return bondsName;
 	}
-	public void setBoundsName(String boundsName) {
-		this.boundsName = boundsName;
+	public void setBondsName(String bondsName) {
+		this.bondsName = bondsName;
 	}
-	public String getBoundsType() {
-		return boundsType;
+	public String getBondsType() {
+		return bondsType;
 	}
-	public void setBoundsType(String boundsType) {
-		this.boundsType = boundsType;
+	public void setBondsType(String bondsType) {
+		this.bondsType = bondsType;
 	}
 	public String getDuration() {
 		return duration;
@@ -56,11 +56,11 @@ public class EnterpriseBounds {
 	public void setMatureDate(String matureDate) {
 		this.matureDate = matureDate;
 	}
-	public String getBoundsFullName() {
-		return boundsFullName;
+	public String getBondsFullName() {
+		return bondsFullName;
 	}
-	public void setBoundsFullName(String boundsFullName) {
-		this.boundsFullName = boundsFullName;
+	public void setBondsFullName(String bondsFullName) {
+		this.bondsFullName = bondsFullName;
 	}
 	public Long getId() {
 		return id;

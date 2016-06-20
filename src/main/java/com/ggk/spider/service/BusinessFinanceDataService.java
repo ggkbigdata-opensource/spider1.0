@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.ggk.spider.model.BusinessFinanceData;
 
-public interface BusinessFinanceDataSerivce {
+public interface BusinessFinanceDataService {
 	
 	public void batchAddData(List<BusinessFinanceData> datas);
 	

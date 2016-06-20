@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.ggk.spider.mapper.BusinessFinanceDataMapper;
 import com.ggk.spider.model.BusinessFinanceData;
-import com.ggk.spider.service.BusinessFinanceDataSerivce;
+import com.ggk.spider.service.BusinessFinanceDataService;
 
 @Service
-public class BusinessFinanceDataSerivceImpl implements BusinessFinanceDataSerivce {
+public class BusinessFinanceDataSerivceImpl implements BusinessFinanceDataService {
 	
 	private static final Logger logger = Logger.getLogger(BusinessFinanceDataSerivceImpl.class);
 	@Autowired
