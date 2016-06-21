@@ -4,7 +4,7 @@
 <mapper namespace="com.ggk.spider.mapper.SourceFilesMapper">
 
 	<insert id="add"  useGeneratedKeys="true" keyProperty="id">
-		INSERT INTO tbl_spider_sourceFiles
+		INSERT INTO tbl_spider_sourceFiles_fail
 		(enterpriseId,enterpriseName,fileName)
 		VALUES
 		(#{enterpriseId},#{enterpriseName},#{fileName});

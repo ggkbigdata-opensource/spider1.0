@@ -1,10 +1,8 @@
 package com.ggk.spider.utils.parser;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
@@ -14,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.util.StringUtils;
 
 import com.ggk.spider.model.BusinessFinanceData;
@@ -27,8 +26,8 @@ public class ReportTxtDataOperation {
 	private int titleCount = 0;
 	
 	private String rangeRegExp = "^.*-?([1-9]\\d*\\.\\d*|0\\.\\d*[1-9]\\d*|0?\\.0+|0)./*$";
-	private String pokFileDir = "F:\\ggkData\\pok";
-	private String failFileDir = "F:\\ggkData\\fail";
+	private String pokFileDir = "D:\\codes\\spider\\pok";
+	private String failFileDir = "D:\\codes\\spider\\fail";
 	private String enterpriseName = "";
 
 //	public static void main(String[] args) {
@@ -88,11 +87,11 @@ public class ReportTxtDataOperation {
 				}
 			}
 		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
+			copyErrorFile();
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			copyErrorFile();
 		} catch (IOException e) {
-			e.printStackTrace();
+			copyErrorFile();
 		}		
 		return data;
 	}
@@ -102,7 +101,6 @@ public class ReportTxtDataOperation {
 	 * */
 	public List<BusinessFinanceData> execute() {
 		String txtFilePath = getReportTxtFilePath();
-		String txtFileName = txtFilePath.substring(txtFilePath.lastIndexOf("\\") + 1);
 		String encoding = "UTF-8"; // 编码方式
 		InputStreamReader reader = null;
 		LineNumberReader br = null;
@@ -254,31 +252,23 @@ public class ReportTxtDataOperation {
 				}
 	
 			}
-			
-			if (dirtyTag == 1) {
-//				cmd = cmdCopy + " \"" + txtFilePath + "\" " + pokFileDir;
-//				runtime.exec(cmd);
+			if(null != mapList && mapList.isEmpty()){
+				cmd = cmdCopy + " \"" + txtFilePath + "\" " + failFileDir;
+				runtime.exec(cmd);
 				
-				BufferedWriter out = null;
-				try {
-					File dirtyReportTxt = new File(pokFileDir + File.separator + txtFileName);
-					dirtyReportTxt.createNewFile(); // 创建新文件  
-					out = new BufferedWriter(new FileWriter(dirtyReportTxt));
-					out.write(content.toString()); 
-					out.flush(); // 把缓存区内容压入文件  
-					out.close(); // 最后记得关闭文件  
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+			}else if (dirtyTag == 1) {
+				cmd = cmdCopy + " \"" + txtFilePath + "\" " + pokFileDir;
+				runtime.exec(cmd);
+				
 				dirtyTag = 0;
 			}
 			
 		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
+			copyErrorFile();
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			copyErrorFile();
 		} catch (IOException e) {
-			e.printStackTrace();
+			copyErrorFile();
 		} 
 		return this.getBusinessFinanceDataList(mapList);
 	}
@@ -496,11 +486,11 @@ public class ReportTxtDataOperation {
 			}
 			
 		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
+			copyErrorFile();
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			copyErrorFile();
 		} catch (IOException e) {
-			e.printStackTrace();
+			copyErrorFile();
 		} finally {
 			try {
 				if (br != null) {
@@ -742,6 +732,17 @@ public class ReportTxtDataOperation {
 			md5SubString += md5String[i];
 		}
 		return md5SubString;
+	}
+	
+	private void copyErrorFile(){
+		String txtFilePath = this.getReportTxtFilePath();
+		String txtErrorFilePath = txtFilePath.replace("reporttxt", "reporttxt2dataerror");
+		try {
+			FileUtils.copyFile(new File(txtFilePath), new File(txtErrorFilePath));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	

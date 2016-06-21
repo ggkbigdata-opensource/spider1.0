@@ -216,8 +216,11 @@ public class Txt2ReportTxt {
 				e.printStackTrace();
 			}
 		}
-		
-		this.writeReportTxt(resultList, reportTxt);
+		if(CollectionUtils.isEmpty(resultList)){
+			return "error";
+		}else{
+			this.writeReportTxt(resultList, reportTxt);
+		}
 		return null;
 	}
 	
